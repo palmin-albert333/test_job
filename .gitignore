@@ -1,0 +1,4 @@
+.ansible_vault_pass
+sh.yml
+.env
+/roles/deploy/vars/main.yml
