@@ -1,7 +1,7 @@
 ---
 - name: Creates directory
   file:
-    path: /home/albert/nginx
+    path: ~/nginx
     state: directory
 - name: Copy config nginx
   copy:
@@ -33,11 +33,6 @@
                 - 8080:80
               volumes:
                 - ~/app:/var/www/html
-              environment:
-                WORDPRESS_DB_HOST: "{{WORDPRESS_DB_HOST}}"
-                WORDPRESS_DB_USER: "{{WORDPRESS_DB_USER}}"
-                WORDPRESS_DB_PASSWORD: "{{WORDPRESS_DB_PASSWORD}}"
-                WORDPRESS_DB_NAME: "{{WORDPRESS_DB_NAME}}"
               restart: unless-stopped
               depends_on:
                 - db
@@ -50,9 +45,9 @@
               volumes:
                 - ~/db:/var/lib/mysql
               environment:
-                MYSQL_DATABASE: "{{MYSQL_DATABASE}}"
-                MYSQL_USER: "{{MYSQL_USER}}"
-                MYSQL_PASSWORD: "{{MYSQL_PASSWORD}}"
+                MYSQL_DATABASE     : "{{MYSQL_DATABASE}}"
+                MYSQL_USER         : "{{MYSQL_USER}}"
+                MYSQL_PASSWORD     : "{{MYSQL_PASSWORD}}"
                 MYSQL_ROOT_PASSWORD: "{{MYSQL_ROOT_PASSWORD}}"
               restart: unless-stopped
               networks:
