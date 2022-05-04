@@ -28,4 +28,4 @@ ps устанавливать на целевом хосте docker/docker-compo
 4) используется субд MYSQL;
 5) переменные добавлены в .gitignore. Пароль su от сервера скрыт с помощью ansible vault;
 6) в директории /roles/deploy/vars/ пример использованных переменных;
-7) запустить плэйбук: ansible-playbook --vault-password-file=.ansible_vault_pass deploy.yml.
+7) запустить плэйбук: ansible-playbook deploy.yml.
