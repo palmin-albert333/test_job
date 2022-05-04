@@ -7,9 +7,7 @@
   copy:
     src: /home/albert/test_work/roles/deploy/files/default.conf
     dest: /home/albert/nginx/default.conf
-    owner: albert
-    group: albert
-    mode: 0664
+
 
 - docker_compose:
         project_name: wordpress
