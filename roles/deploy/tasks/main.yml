@@ -55,7 +55,7 @@
             MYSQL_PASSWORD: "{{MYSQL_PASSWORD}}"
             MYSQL_ROOT_PASSWORD: "{{MYSQL_ROOT_PASSWORD}}"
           restart: unless-stopped
-          networks:
+          networks: # База закрыта для доступа извне
             - backend
 
       networks:
