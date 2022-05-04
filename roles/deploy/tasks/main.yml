@@ -34,10 +34,10 @@
           volumes:
             - ~/app:/var/www/html
           environment: # Здесь переменные можно не указывать, но придется потом вносить при установке
-            WORDPRESS_DB_HOST: "{{WORDPRESS_DB_HOST}}"
-            WORDPRESS_DB_USER: "{{WORDPRESS_DB_USER}}"
-            WORDPRESS_DB_PASSWORD: "{{WORDPRESS_DB_PASSWORD}}"
-            WORDPRESS_DB_NAME: "{{WORDPRESS_DB_NAME}}"
+            WORDPRESS_DB_HOST    : db
+            WORDPRESS_DB_USER    : "{{MYSQL_USER}}"
+            WORDPRESS_DB_PASSWORD: "{{MYSQL_PASSWORD}}"
+            WORDPRESS_DB_NAME    : "{{MYSQL_DATABASE}}"
           restart: unless-stopped
           depends_on:
             - db
@@ -50,9 +50,9 @@
           volumes:
             - ~/db:/var/lib/mysql
           environment:
-            MYSQL_DATABASE: "{{MYSQL_DATABASE}}"
-            MYSQL_USER: "{{MYSQL_USER}}"
-            MYSQL_PASSWORD: "{{MYSQL_PASSWORD}}"
+            MYSQL_DATABASE     : "{{MYSQL_DATABASE}}"
+            MYSQL_USER         : "{{MYSQL_USER}}"
+            MYSQL_PASSWORD     : "{{MYSQL_PASSWORD}}"
             MYSQL_ROOT_PASSWORD: "{{MYSQL_ROOT_PASSWORD}}"
           restart: unless-stopped
           networks: # База закрыта для доступа извне
